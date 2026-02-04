@@ -1,4 +1,4 @@
-resource "aws_instance" "example" {
+resource "aws_instance" "cli_host" {
   ami           = "ami-0c55b159cbfafe1d0"  # Amazon Linux 2 in us-west-2; update if needed
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.public.id
