@@ -2,6 +2,10 @@ resource "aws_s3_bucket" "files" {
   bucket_prefix = "aws-capstone-files-"
   force_destroy = true # convenient for dev (removes objects on destroy)
 
+  lifecycle {
+    ignore_changes = [object_lock_configuration]
+  }
+
   tags = {
     Name        = "files-bucket"
     Environment = terraform.workspace
