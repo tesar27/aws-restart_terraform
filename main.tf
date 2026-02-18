@@ -1,12 +1,14 @@
 terraform {
-  cloud {
-    organization = "local-sandbox-org"
-    workspaces {
-      name = "aws-restart_terraform"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "6.32.1"
     }
   }
+
+  required_version = ">=1.2"
 }
 
 provider "aws" {
-  region = "us-west-2"  # Replace with your region
+  region = "us-west-2" # Replace with your region
 }

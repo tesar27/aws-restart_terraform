@@ -9,10 +9,10 @@ data "aws_ami" "amazon_linux" {
 }
 
 resource "aws_instance" "cli_host" {
-  ami           = data.aws_ami.amazon_linux.id
-  instance_type = "t2.micro"
-  subnet_id     = aws_subnet.public.id
-  vpc_security_group_ids = [aws_security_group.allow_ssh.id]
+  ami                         = data.aws_ami.amazon_linux.id
+  instance_type               = "t2.micro"
+  subnet_id                   = aws_subnet.public.id
+  vpc_security_group_ids      = [aws_security_group.allow_ssh.id]
   associate_public_ip_address = true
   tags = {
     Name = "cli-host"
@@ -20,10 +20,10 @@ resource "aws_instance" "cli_host" {
 }
 
 resource "aws_instance" "web_server" {
-  ami           = data.aws_ami.amazon_linux.id
-  instance_type = "t2.micro"
-  subnet_id     = aws_subnet.public.id
-  vpc_security_group_ids = [aws_security_group.allow_ssh.id]
+  ami                         = data.aws_ami.amazon_linux.id
+  instance_type               = "t2.micro"
+  subnet_id                   = aws_subnet.public.id
+  vpc_security_group_ids      = [aws_security_group.allow_ssh.id]
   associate_public_ip_address = true
   tags = {
     Name = "web-server"
