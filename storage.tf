@@ -4,7 +4,7 @@ resource "aws_s3_bucket" "files" {
 
   lifecycle {
     prevent_destroy = false
-    ignore_changes = [object_lock_configuration]
+    ignore_changes  = [object_lock_configuration]
   }
 
   tags = {
