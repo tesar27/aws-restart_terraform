@@ -3,6 +3,7 @@ resource "aws_s3_bucket" "files" {
   force_destroy = true # convenient for dev (removes objects on destroy)
 
   lifecycle {
+    prevent_destroy = false
     ignore_changes = [object_lock_configuration]
   }
 
