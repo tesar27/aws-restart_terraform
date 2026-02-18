@@ -52,26 +52,8 @@ resource "aws_dynamodb_table" "files" {
     type = "S"
   }
 
-  hash_key {
-    attribute_name = "userId"
-    key_type       = "HASH"
-  }
-
-  hash_key {
-    attribute_name = "fileId"
-    key_type       = "RANGE"
-  }
-
-  global_secondary_index {
-    name = "fileId-index"
-
-    hash_key {
-      attribute_name = "fileId"
-      key_type       = "HASH"
-    }
-
-    projection_type = "ALL"
-  }
+  hash_key  = "userId"
+  range_key = "fileId"
 
   ttl {
     attribute_name = "expireAt"
@@ -93,26 +75,7 @@ resource "aws_dynamodb_table" "users" {
     type = "S"
   }
 
-  attribute {
-    name = "email"
-    type = "S"
-  }
-
-  hash_key {
-    attribute_name = "userId"
-    key_type       = "HASH"
-  }
-
-  global_secondary_index {
-    name = "email-index"
-
-    hash_key {
-      attribute_name = "email"
-      key_type       = "HASH"
-    }
-
-    projection_type = "ALL"
-  }
+  hash_key = "userId"
 
   tags = {
     Name        = "Users-table"
