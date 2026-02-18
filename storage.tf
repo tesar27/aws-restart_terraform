@@ -52,12 +52,12 @@ resource "aws_dynamodb_table" "files" {
     type = "S"
   }
 
-  key_schema {
+  hash_key {
     attribute_name = "userId"
     key_type       = "HASH"
   }
 
-  key_schema {
+  hash_key {
     attribute_name = "fileId"
     key_type       = "RANGE"
   }
@@ -65,7 +65,7 @@ resource "aws_dynamodb_table" "files" {
   global_secondary_index {
     name = "fileId-index"
 
-    key_schema {
+    hash_key {
       attribute_name = "fileId"
       key_type       = "HASH"
     }
@@ -98,7 +98,7 @@ resource "aws_dynamodb_table" "users" {
     type = "S"
   }
 
-  key_schema {
+  hash_key {
     attribute_name = "userId"
     key_type       = "HASH"
   }
@@ -106,7 +106,7 @@ resource "aws_dynamodb_table" "users" {
   global_secondary_index {
     name = "email-index"
 
-    key_schema {
+    hash_key {
       attribute_name = "email"
       key_type       = "HASH"
     }
